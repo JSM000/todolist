@@ -57,12 +57,14 @@ const Text = styled.div`
     `}
 `;
 
-const Todoitem = (props) => {
+const Todoitem = ({ id, done, text }) => {
   return (
     <TodoItemBlock>
-      <CheckCircle />
-      <Text />
-      <Remove />
+      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <Text done={done}>{text}</Text>
+      <Remove>
+        <MdDelete />
+      </Remove>
     </TodoItemBlock>
   );
 };
